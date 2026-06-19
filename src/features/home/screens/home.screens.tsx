@@ -12,7 +12,6 @@ export default function HomeScreen() {
     <OurCategories/>
     <DealsBanner/>
     <FeaturedProucts/>
-      
     </>
   )
 }
