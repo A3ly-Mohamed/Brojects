@@ -193,7 +193,6 @@ export default function CheckoutScreen() {
                 <div className="flex justify-between items-center pt-2">
                   <span className="text-lg font-bold text-gray-900">Total</span>
                   <span className="text-2xl font-bold text-primary-600">
-                    
                   </span>
                 </div>
               </div>
