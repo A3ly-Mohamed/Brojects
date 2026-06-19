@@ -28,36 +28,36 @@ interface Locker {
     id: number;
     name: string;
     description: string;
-    availableTime?: string; 
+    availableTime?: string;
     status: LockerStatus;
 }
 
 const defaultLockers: Locker[] = [
-    { 
-        id: 1, 
-        name: "خزانة أمنية الذكية A-1", 
-        description: "مخصصة للبريد والطرود المتوسطة الحجم، تحتوي على شاحن داخلي.", 
-        availableTime: new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' }), 
-        status: "full" 
+    {
+        id: 1,
+        name: "خزانة أمنية الذكية A-1",
+        description: "مخصصة للبريد والطرود المتوسطة الحجم، تحتوي على شاحن داخلي.",
+        availableTime: new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' }),
+        status: "full"
     },
-    { 
-        id: 2, 
-        name: "خزانة أمنية الذكية B-4", 
-        description: "مخصصة للمستندات والملفات المهمة، أمان عالي وحماية ضد الحريق.", 
-        status: "empty" 
+    {
+        id: 2,
+        name: "خزانة أمنية الذكية B-4",
+        description: "مخصصة للمستندات والملفات المهمة، أمان عالي وحماية ضد الحريق.",
+        status: "empty"
     },
-    { 
-        id: 3, 
-        name: "خزانة أمنية الذكية C-2", 
-        description: "مساحة واسعة للحقائب والأجهزة الإلكترونية الكبيرة.", 
-        status: "empty" 
+    {
+        id: 3,
+        name: "خزانة أمنية الذكية C-2",
+        description: "مساحة واسعة للحقائب والأجهزة الإلكترونية الكبيرة.",
+        status: "empty"
     },
 ];
 
 export default function LockersStatus() {
     const storeLockers = useAppSelector((state) => state?.lockers?.lockers);
     const [lockers, setLockers] = useState<Locker[]>(defaultLockers);
-    
+
     // Modal State
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedLockerId, setSelectedLockerId] = useState<number | null>(null);
@@ -107,7 +107,7 @@ export default function LockersStatus() {
 
         // Close Modal safely before firing toast
         setIsModalOpen(false);
-        
+
         // Triggers the successful verification feedback notice
         toast.success(`تم مسح الرمز وتأكيد حجز درج ${selectedLockerId} بنجاح!`, {
             position: "bottom-left",
@@ -184,9 +184,9 @@ export default function LockersStatus() {
 
                         {/* Middle QR Container */}
                         <div className="bg-slate-50 p-4 rounded-xl inline-block border border-slate-200 mb-6">
-                            <img 
-                                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=LockerConfirmation" 
-                                alt="QR Code" 
+                            <img
+                                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=LockerConfirmation"
+                                alt="QR Code"
                                 className="w-36 h-36 mx-auto"
                             />
                         </div>
